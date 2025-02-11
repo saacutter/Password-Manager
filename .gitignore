@@ -1,0 +1,6 @@
+database/data.sql
+database/passwords.db
+
+flask_session/*
+__pycache__/*
+templates/depricated/*
