@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
 
 {% block title %}
-CS50 Password
+Password Manager
 {% endblock %}
 
 {% block head %}
-<script src="/static/add.js"></script>
+<script src="/static/options.js"></script>
 <script src="/static/PasswordManager.js"></script>
 {% endblock %}
 
 {% block body %}
 <div class="main-page">
     <div class="heading btm-border">
-        <header class="inline" style="background-color: transparent;">CS50 Password</header>
+        <header class="inline" style="background-color: transparent;">Password Manager</header>
         <form action="/signout" class="inline">
             <button type="submit">Sign Out</button>
         </form>
@@ -22,13 +22,13 @@ CS50 Password
     </div>
     <div id="passwords">
         {% for details in accounts %}
-            <div class="btm-margin black-border round-border center password-entry">
+            <div class="btm-margin black-border round-border center password-entry" style="display: flex;">
                 <div class="details">
                     <p class="main">{{ details.2 }}</p> <!-- Service name -->
                     <p class="sub">{{ details.3 }}</p> <!-- Username -->
                 </div>
-                <div class="side-buttons">
-                    <!-- This is the actual password for when you get to it: <p>{{ details.4 }}</p> -->
+                <div class="password">
+                    <p class="sub">{{ details.4 }}</p> <!-- Password -->
                 </div>
             </div>
         {% endfor %}
@@ -104,39 +104,3 @@ CS50 Password
     </div>
 </div>
 {% endblock %}
-
-<!--
-<div class="heading">
-    <div>
-        <text>CS50 Password</text>
-    </div>
-    <div class="dropdown">
-        <button id="Options">Options </button>
-        <div class="dropdown-content">
-            <form action="/signout" method="get">
-                <button type="submit">Sign Out</button>
-            </form>
-        </div>
-    </div>
-</div>
-<div id="passwords">
-    <table>
-        <thead>
-            <tr>
-                <th>Service</th>
-                <th>Username</th>
-                <th>Password</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for password in passwords %}
-                <tr>
-                    <td style="width: 10%;">{{ password.2 }}</td>
-                    <td style="width: 40%;">{{ password.3 }}</td>
-                    <td style="width: 40%;">{{ password.4 }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
--->

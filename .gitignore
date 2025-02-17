@@ -1,6 +1,11 @@
-database/data.sql
-database/passwords.db
-
+# Default folders created by flask/python
 flask_session/*
 __pycache__/*
+
+# Archived templates from early development
 templates/depricated/*
+templates/archive/*
+
+# Database files
+database/data.sql
+database/passwords.db
