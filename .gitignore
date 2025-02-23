@@ -1,3 +1,6 @@
+# Virtual environment files
+.venv/*
+
 # Default folders created by flask/python
 flask_session/*
 __pycache__/*
