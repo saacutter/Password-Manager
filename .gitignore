@@ -1,14 +1,8 @@
-# Virtual environment files
-.venv/*
+# virtual environment
+**/.venv
 
-# Default folders created by flask/python
-flask_session/*
-__pycache__/*
+# node packages
+**/node*
 
-# Archived templates from early development
-templates/depricated/*
-templates/archive/*
-
-# Database files
-database/data.sql
-database/passwords.db
+# Python cache files
+**/__pycache__
