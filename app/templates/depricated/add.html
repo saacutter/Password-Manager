@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+CS50 Password | Add Password
+{% endblock %}
+
+{% block body %}
+<div>
+    <form action="/add" method="post">
+        <input type="text" placeholder="Username / Email Address" autocomplete="off" autofocus required>
+        <input type="password" placeholder="Password" autocomplete="off" required>
+        <button type="submit">Add</button>
+    </form>
+</div>
+{% endblock %}
