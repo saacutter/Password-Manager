@@ -25,14 +25,6 @@ class RegistrationForm(FlaskForm):
         if existing_user:
             raise ValidationError("A user with this email address already exists")
 
-class AddPasswordForm(FlaskForm):
-    name     = StringField('Service Name', validators=[DataRequired()])
-    username = StringField('Username / Email Address')
-    password = StringField('Password')
-    website  = StringField('Website')
-    details  = StringField('Description')
-    submit   = SubmitField('Add')
-
 class EditProfileForm(FlaskForm):
     email           = StringField('Email Address', validators=[DataRequired(), Email(message="The email address must be a valid email address")])
     password        = PasswordField('Password', validators=[Optional(), Length(min=8, message="The password must be at least 8 characters long"), Regexp(r'^[a-zA-Z0-9!"#$%&\'()*+,-./:;<=>?@\[\\\]^_`{|}~]+$', message="The password must contain only letters, numbers, and !@#$%^&*()_+=-")])
@@ -59,3 +51,19 @@ class EditProfileForm(FlaskForm):
             if abs(img.width - img.height) > 50:
                 raise ValidationError("The profile image must be square")
             image.seek(0) # Reset the file point to the start so that it can be saved to the server properly
+
+class AddPasswordForm(FlaskForm):
+    name     = StringField('Service Name', validators=[DataRequired()])
+    username = StringField('Username / Email Address')
+    password = StringField('Password')
+    website  = StringField('Website')
+    details  = StringField('Description')
+    submit   = SubmitField('Add')
+
+class EditPasswordForm(FlaskForm):
+    name     = StringField('Service Name', validators=[DataRequired()])
+    username = StringField('Username / Email Address')
+    password = StringField('Password')
+    website  = StringField('Website')
+    details  = StringField('Description')
+    submit   = SubmitField('Save Changes')

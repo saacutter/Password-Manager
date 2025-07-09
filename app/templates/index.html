@@ -6,7 +6,7 @@ Password Manager
 
 {% block body %}
 <div>
-    <button onclick="showDetails('add-login-panel')" class="mt-4 p-2 center text-white text-xl">Add Entry</button>
+    <button onclick="showDetails('add-login-panel')" class="mt-4 mb-4 p-2 center text-white text-xl border rounded w-1/10">Add Entry</button>
     <div id="passwords" class="w-1/2 center flex">
         <!-- The passwords associated with the user go here -->
     </div>
@@ -23,7 +23,7 @@ Password Manager
                 {{ form.hidden_tag() }}
                 <div>
                     <p>Item Details</p>
-                    {{ form.name(placeholder="Name", autofocus="true") }}
+                    {{ form.name(placeholder="Name") }}
                 </div>
                 <div>
                     <p>Credentials</p>
@@ -34,39 +34,15 @@ Password Manager
                             <span class="material-symbols-outlined flex h-full cursor-pointer text-black absolute top-2 right-10 rotate-75" id="generate" style="user-select: none;">directory_sync</span>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <input type="button" value="Options" class="border black-border" id="option-select">
-                        </div>
-                    </div>
-                    <div id="options-div">
-                        <p id="options-heading">Options</p>
-                        <div id="options-div-div" class="flex">
-                            <div class="inline" id="length">
-                                <input type="number" placeholder="Length" value=8 id="length-input">
-                            </div>
-                            <div class="inline" style="align-items: center;" id="options">
-                                <div style="margin-right: 2vw;">
-                                    <label for="uppercase-ckbox">Uppercase</label>
-                                    <input type="checkbox" id="uppercase-ckbox" checked>
-                                </div>
-                                <div style="margin-right: 2vw;">
-                                    <label for="numbers-ckbox">Numbers</label>
-                                    <input type="checkbox" id="numbers-ckbox" checked>
-                                </div>
-                                <div>
-                                    <label for="punctuation-ckbox">Punctuation</label>
-                                    <input type="checkbox" id="punctuation-ckbox" checked>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div id="password-generator">
+                    <!-- The password generations options go here -->
                 </div>
                 <div>
                     <p>Additional Options</p>
                     <div>
                         {{ form.website(placeholder="Website", autocomplete="off") }}
-                        <textarea name="details" type="text" placeholder="Description" autocomplete="off" class="black-border w-full" style="height: 7em; resize: none;"></textarea>
+                        <textarea name="details" type="text" placeholder="Description" autocomplete="off" class="border w-full" style="height: 7em; resize: none;"></textarea>
                     </div>
                 </div>
                 <div class="flex w-full gap-5 text-black">
@@ -74,27 +50,11 @@ Password Manager
                     <button id="cancel" class="flex w-1/5 justify-center">Cancel</button>
                 </div>
             </form>
-            {% if get_flashed_messages() or form.errors %}
-                <div class="center error rounded-border-px mt-5">
-                    {% if get_flashed_messages() %}
-                        {% for message in get_flashed_messages() %}
-                            <p>{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-                    {% if form.errors %}
-                        {% for field, errors in form.errors.items() %}
-                            {% for error in errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            {% endif %}
+            {% include "_errors.html" %}
         </div>
     </div>
 </div>
 <script src="/static/js/details.js"></script>
-<script src="/static/js/add.js"></script>
 <script src="/static/js/password_manager.js"></script>
 <script src="/static/js/get_passwords.js"></script>
 {% endblock %}

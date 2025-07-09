@@ -34,25 +34,18 @@ Password Manager | Profile
                     {{ form.submit(class="bg-blue-600 hover:bg-blue-700 border border-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition") }}
                 </div>
             </form>
-            {% if get_flashed_messages() or form.errors %}
-                <div class="center error rounded-border-px mt-5">
-                    {% if get_flashed_messages %}
-                        {% for message in get_flashed_messages() %}
-                            <p>{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-
-                    {% if form.errors %}
-                        {% for field, errors in form.errors.items() %}
-                            {% for error in errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            {% endif %}
+            {% include "_errors.html" %}
+        </div>
+        <br>
+        <div class="center mt-10">
+            <h1 class="font-bold center" style="font-size: 30px; color: #c83522;">DANGER ZONE</h1>
+            <div class="w-full flex items-center border border-red-500 round-border" style="color: #c83522;">
+                <button class="flex border border-red-600 hover:text-white hover:bg-red-500 m-4" id="delete">Delete Account</button>
+                <button class="flex border border-red-600 hover:text-white hover:bg-red-500 m-4" id="purge">Purge Vault</button>
+            </div>
         </div>
     </div>
 </div>
 <script src="/static/js/image_preview.js"></script>
+<script src="/static/js/danger.js"></script>
 {% endblock %}

@@ -1,0 +1,17 @@
+{% if get_flashed_messages() or form.errors %}
+    <div class="center error rounded-border-px mt-5">
+        {% if get_flashed_messages %}
+            {% for message in get_flashed_messages() %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        
+        {% if form.errors %}
+            {% for field, errors in form.errors.items() %}
+                {% for error in errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endif %}

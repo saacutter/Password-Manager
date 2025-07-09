@@ -105,7 +105,7 @@ function addPasswordDetails(id) {
                     <p><strong>Created:</strong> ${password.creation_date}</p>
                 </div>
                 <div class="flex items-center mt-2 w-full gap-2 text-black">
-                    <button>Edit</button>
+                    <a href="/edit/${password.id}"><button>Edit</button></a>
                     <span class="material-symbols-outlined p-2 absolute right-0 mr-4 text-black rounded-full transition hover:cursor-pointer hover:bg-red-500 hover:text-white" style="user-select: none;" id="delete">delete</span>
                 </div>
             </div>
