@@ -13,3 +13,4 @@
 # database
 app/database/*
 **/app.db
+app/app.db
