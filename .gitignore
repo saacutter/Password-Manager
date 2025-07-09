@@ -6,3 +6,10 @@
 
 # Python cache files
 **/__pycache__
+
+# environment variables
+.env
+
+# database
+app/database/*
+**/app.db

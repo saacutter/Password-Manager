@@ -1,18 +1,12 @@
 # Password Manager
 
-
 ## Launching the Application
-The following steps should be taken in order to setup and start running the application. \
+The following steps should be taken in order to setup and start running the application. 
 ### Creating the Virtual Environment
-1. Clone the repository from GitHub.
-```
-git clone https://github.com/saacutter/CITS3403-Project
-```
-
-2. Install the [Python interpreter](https://www.python.org/downloads/) for your operating system.
+1. Install the [Python interpreter](https://www.python.org/downloads/) for your operating system.
     - This was developed using Python 3.12.3, the latest version of Python available on Ubuntu 24.04.
 
-3. Create and activate a virtual environment.
+2. Create and activate a virtual environment.
     - A virtual environment can be created using `python -m venv /path/to/venv`.
     - The virtual environment is activated depending on the operating system:
         - Linux and MacOS: `source path/to/venv/bin/activate`
@@ -20,7 +14,7 @@ git clone https://github.com/saacutter/CITS3403-Project
         - Windows Powershell: `path\to\venv\Scripts\Activate.ps1`
     - The virtual environment can be stopped at any time using the `deactivate` command (operating system agnostic).
 
-5. Install the dependencies for the project backend.
+3. Install the dependencies for the project backend.
 ```bash
 pip install -r requirements.txt
 ```
@@ -38,10 +32,6 @@ pip install -r requirements.txt
         │   ├── app.db
         │   ├── config.py
         │   ├── controllers.py
-        │   ├── database
-        │   │   ├── data.sql
-        │   │   ├── passwords.db
-        │   │   └── schema.sql
         │   ├── forms.py
         │   ├── models.py
         │   ├── routes.py
@@ -50,16 +40,18 @@ pip install -r requirements.txt
         │   │   │   ├── raw.css
         │   │   │   └── styles.css
         │   │   └── js
-        │   │       ├── add.js
+        │   │       ├── danger.js
         │   │       ├── details.js
         │   │       ├── get_passwords.js
         │   │       ├── image_preview.js
         │   │       └── password_manager.js
         │   └── templates
+        │       ├── _errors.html
         │       ├── base.html
         │       ├── depricated
         │       │   ├── add.html
         │       │   └── signup.html
+        │       ├── edit-password.html
         │       ├── home.html
         │       ├── index.html
         │       ├── login.html
@@ -67,7 +59,7 @@ pip install -r requirements.txt
         │       └── user.html
         ├── manager.py
         ├── migrations
-        │   ├── README
+        │   ├── README 
         │   ├── alembic.ini
         │   ├── env.py
         │   ├── script.py.mako
